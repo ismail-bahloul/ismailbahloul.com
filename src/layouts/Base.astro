@@ -11,8 +11,7 @@ const { title, description } = Astro.props;
 const SITE = "https://ismailbahloul.com";
 const canonical = new URL(Astro.url.pathname, SITE).toString();
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
-const fullTitle =
-  path === "/" ? title : `${title} · Ismaïl Bahloul`;
+const fullTitle = path === "/" ? title : `${title} · Ismaïl Bahloul`;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -47,14 +46,6 @@ const jsonLd = {
     "Python",
   ],
 };
-
-const nav = [
-  { href: "/projets", label: "Projets" },
-  { href: "/cv", label: "CV" },
-  { href: "/#contact", label: "Contact" },
-];
-
-const isCurrent = (href: string) => path === href;
 ---
 
 <!doctype html>
@@ -65,8 +56,8 @@ const isCurrent = (href: string) => path === href;
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    <meta name="theme-color" content="#0a0b0d" />
-    <meta name="color-scheme" content="dark" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="sitemap" href="/sitemap.xml" />
 
@@ -90,36 +81,8 @@ const isCurrent = (href: string) => path === href;
   </head>
 
   <body>
-    <a class="skip" href="#main">Aller au contenu</a>
-
-    <header class="site-header">
-      <div class="wrap">
-        <a class="brand" href="/">Ismaïl Bahloul<span> · systèmes &amp; DevOps</span></a>
-        <nav class="nav" aria-label="Navigation principale">
-          {nav.map((item) => (
-            <a
-              href={item.href}
-              aria-current={isCurrent(item.href) ? "page" : undefined}
-            >
-              {item.label}
-            </a>
-          ))}
-        </nav>
-      </div>
-    </header>
-
-    <main id="main">
+    <main class="page">
       <slot />
     </main>
-
-    <footer class="site-footer">
-      <div class="wrap">
-        <span>© 2026 Ismaïl Bahloul</span>
-        <span>
-          Site statique · Astro · Cloudflare Pages ·
-          <a href="https://github.com/ismail-bahloul/ismailbahloul.com">code source</a>
-        </span>
-      </div>
-    </footer>
   </body>
 </html>

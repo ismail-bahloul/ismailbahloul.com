@@ -1,5 +1,4 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Ismaïl Bahloul">
-  <rect width="64" height="64" rx="14" fill="#0a0b0d"/>
-  <rect x="1" y="1" width="62" height="62" rx="13" fill="none" stroke="#23262d"/>
-  <text x="32" y="42" text-anchor="middle" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="26" font-weight="600" fill="#7cb0ff">IB</text>
+  <rect width="64" height="64" rx="12" fill="#111111"/>
+  <text x="32" y="41" text-anchor="middle" font-family="ui-monospace, Menlo, Consolas, monospace" font-size="24" font-weight="600" letter-spacing="1.5" fill="#ffffff">IB</text>
 </svg>

@@ -1,166 +1,41 @@
 ---
 import Base from "../layouts/Base.astro";
-
-const projets = [
-  {
-    title: "Driver ALSA pour la RME Babyface Pro FS",
-    desc: "Module noyau écrit de zéro en C : une carte son professionnelle rendue pleinement exploitable sous Linux. Soumis en RFC sur la liste du noyau.",
-    meta: "C · linux-kernel · RFC v6",
-    href: "/projets#babyface",
-  },
-  {
-    title: "TouchDesigner-Linux",
-    desc: "TouchDesigner sur Linux, toutes distributions : installeur en une commande, patches Wine, tests et CI GitHub Actions.",
-    meta: "141 ★ · GitHub Actions",
-    href: "/projets#touchdesigner",
-  },
-  {
-    title: "Pipeline d'acquisition automatisé",
-    desc: "Sept workflows orchestrés pour un client e-commerce : prospection, visuels IA, paiement Stripe, commandes fournisseur, litiges.",
-    meta: "n8n · API LLM · ×10",
-    href: "/projets#pipeline",
-  },
-];
-
-const parcours = [
-  {
-    periode: "2024 → présent",
-    poste: "Consultant IT indépendant",
-    org: "Freelance · Île-de-France / remote",
-    desc: "Automatisation, développement et administration de systèmes Linux pour des clients e-commerce et des indépendants.",
-  },
-  {
-    periode: "2023 → 2024",
-    poste: "Ingénieur infrastructure du SI (alternance)",
-    org: "Assurance Maladie — CNAM · Angers",
-    desc: "Active Directory : mise à jour du plan de reprise d'activité, postes à privilèges, PoC de disaster recovery sur Azure.",
-  },
-  {
-    periode: "2022",
-    poste: "Stage ingénieur R&D",
-    org: "AMBER ICPT · Terrassa, Espagne",
-    desc: "Système piloté à distance en Python, avec une interface web de supervision.",
-  },
-  {
-    periode: "2019 → 2024",
-    poste: "Diplôme d'ingénieur",
-    org: "ESEO Angers · Cloud, Systèmes & Sécurité",
-    desc: "Bac+5. Spécialisation cloud, systèmes et sécurité.",
-  },
-];
 ---
 
 <Base
   title="Ismaïl Bahloul — Ingénieur systèmes Linux & DevOps"
-  description="Ingénieur systèmes Linux & DevOps (ESEO 2024). Drivers noyau, infrastructure, automatisation. Disponible immédiatement en Île-de-France."
+  description="Ingénieur systèmes Linux & DevOps, diplômé de l'ESEO. Infrastructure, automatisation, code bas niveau. Disponible immédiatement en Île-de-France."
 >
-  <div class="wrap">
-    <section class="hero" aria-labelledby="titre">
-      <p class="eyebrow">
-        <span class="dot" aria-hidden="true"></span>
-        Disponible immédiatement — CDI, hybride ou présentiel
-      </p>
-      <h1 id="titre">Ismaïl Bahloul</h1>
-      <p class="role">Ingénieur systèmes Linux &amp; DevOps</p>
-      <p class="lead">
-        J'écris du code bas niveau, j'administre des infrastructures et
-        j'automatise ce qui peut l'être. Diplômé de l'<strong>ESEO</strong> en
-        cloud, systèmes et sécurité, et deux ans de freelance en production
-        derrière moi. Basé à
-        <strong><span class="nowrap">Nogent-sur-Oise</span></strong>, mobile sur
-        l'axe Paris Nord.
-      </p>
-      <div class="actions">
-        <a class="btn btn--primary" href="/cv.pdf">Télécharger le CV (PDF)</a>
-        <a class="btn" href="https://github.com/ismail-bahloul">GitHub</a>
-        <a class="btn" href="https://www.linkedin.com/in/ismail-bahloul">LinkedIn</a>
-        <a class="btn" href="mailto:ismail@ismailbahloul.com">Écrire un mail</a>
-      </div>
-    </section>
+  <div class="logo" aria-hidden="true">IB</div>
 
-    <section aria-labelledby="competences">
-      <div class="section-head">
-        <span class="num">01</span>
-        <h2 id="competences">Ce que je fais</h2>
-      </div>
-      <div class="grid grid--3">
-        <div class="card">
-          <h3>Systèmes &amp; infrastructure</h3>
-          <p>
-            Linux (RHEL, Debian, Ubuntu), Windows Server, Active Directory et
-            GPO, plans de reprise d'activité, VMware vSphere, Proxmox, Docker et
-            Podman.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Automatisation &amp; CI/CD</h3>
-          <p>
-            Bash, Python, PowerShell, Ansible, Terraform (bases), GitHub
-            Actions, GitLab CI, n8n. Superviser plutôt que surveiller : Zabbix,
-            Nagios, Grafana.
-          </p>
-        </div>
-        <div class="card">
-          <h3>Code &amp; bas niveau</h3>
-          <p>
-            C (module noyau ALSA), Rust, Python. Intégration d'API LLM, Supabase
-            et Stripe, déploiement et maintenance sur VPS Linux.
-          </p>
-        </div>
-      </div>
-    </section>
+  <h1>Ismaïl Bahloul</h1>
+  <p class="role">Ingénieur systèmes Linux &amp; DevOps</p>
 
-    <section aria-labelledby="projets">
-      <div class="section-head">
-        <span class="num">02</span>
-        <h2 id="projets">Projets</h2>
-        <a class="section-note" href="/projets">Tout voir →</a>
-      </div>
-      <div class="grid grid--3">
-        {projets.map((p) => (
-          <a class="card card--project" href={p.href}>
-            <h3>{p.title}</h3>
-            <p>{p.desc}</p>
-            <span class="meta">{p.meta}</span>
-          </a>
-        ))}
-      </div>
-    </section>
+  <hr />
 
-    <section aria-labelledby="parcours">
-      <div class="section-head">
-        <span class="num">03</span>
-        <h2 id="parcours">Parcours</h2>
-      </div>
-      <div class="timeline">
-        {parcours.map((item) => (
-          <div class="timeline-item">
-            <time>{item.periode}</time>
-            <div>
-              <h3>{item.poste}</h3>
-              <span class="org">{item.org}</span>
-              <p>{item.desc}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <section id="contact" aria-labelledby="contact-titre">
-      <div class="section-head">
-        <span class="num">04</span>
-        <h2 id="contact-titre">Contact</h2>
-      </div>
-      <p class="lead" style="margin-top: 0">
-        Une offre, une mission, une question technique ? Le plus direct reste
-        l'email.
-      </p>
-      <div class="contact-list">
-        <a href="mailto:ismail@ismailbahloul.com">ismail@ismailbahloul.com</a>
-        <a href="https://github.com/ismail-bahloul">github.com/ismail-bahloul</a>
-        <a href="https://www.linkedin.com/in/ismail-bahloul">in/ismail-bahloul</a>
-        <a href="/cv.pdf">CV en PDF</a>
-      </div>
-    </section>
+  <div class="profile">
+    <p>
+      Diplômé de l'ESEO en cloud, systèmes et sécurité. En alternance à
+      l'Assurance Maladie, j'ai travaillé sur l'infrastructure Active
+      Directory&nbsp;: plan de reprise d'activité, postes à privilèges, disaster
+      recovery.
+    </p>
+    <p>
+      Depuis 2024, consultant indépendant : automatisation, développement et
+      administration de systèmes Linux pour des clients. J'écris aussi du code
+      bas niveau — un driver ALSA pour une carte son RME, aujourd'hui en revue
+      upstream.
+    </p>
   </div>
+
+  <hr />
+
+  <nav class="links" aria-label="Liens">
+    <a href="/cv.pdf">CV (PDF)</a>
+    <a href="mailto:ismail@ismailbahloul.com">Email</a>
+    <a href="https://github.com/ismail-bahloul">GitHub</a>
+    <a href="https://www.linkedin.com/in/ismail-bahloul">LinkedIn</a>
+  </nav>
+
+  <p class="meta">Nogent-sur-Oise · disponible immédiatement</p>
 </Base>
