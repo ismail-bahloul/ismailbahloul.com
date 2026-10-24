@@ -40,24 +40,24 @@ npm run preview  # sert dist/ localement
 
 ## Déploiement
 
-Deux méthodes, **pas les deux à la fois** :
+Le projet Pages `ismailbahloul-com` est relié au repo : chaque push sur `main`
+déclenche le build et la mise en ligne, sans aucun secret à gérer.
 
-1. **GitHub Actions** (celle du repo) — il faut les secrets
-   `CLOUDFLARE_API_TOKEN` et `CLOUDFLARE_ACCOUNT_ID` dans les réglages du repo,
-   et le projet Pages créé une fois :
+```bash
+npm run deploy   # déploiement manuel depuis la machine, via wrangler
+```
 
-   ```bash
-   npx wrangler pages project create ismailbahloul-com
-   ```
+`wrangler pages deploy` reste l'échappatoire si l'intégration Git casse.
 
-2. **Intégration Git de Cloudflare Pages** — dans le dashboard, connecte le
-   repo, framework `Astro`, build `npm run build`, sortie `dist`. Aucun secret
-   à gérer ; il faut alors supprimer `.github/workflows/deploy.yml` pour éviter
-   un double déploiement.
+Le workflow `.github/workflows/ci.yml` ne fait que vérifier que le build passe —
+il ne déploie pas, pour éviter un double déploiement.
 
-Le domaine `ismailbahloul.com` est branché dans Cloudflare Pages
-(Custom domains). Cloudflare crée l'enregistrement CNAME lui-même — ne pas
-ajouter de A record à la main.
+Node est imposé par `.nvmrc` (24) : Astro refuse les versions antérieures à
+22.23.4, et le runner GitHub en fournissait une plus ancienne.
+
+Le domaine est branché dans **Cloudflare Pages → Custom domains**
+(`ismailbahloul.com` et `www`). Ne pas ajouter de A record à la main.
+Une Redirect Rule renvoie `www` vers l'apex en 301.
 
 ## Publier le CV
 
@@ -66,7 +66,7 @@ Le PDF vient du pipeline `job-applier` (RenderCV), pas de ce repo :
 ```bash
 # dans job-applier
 ./scripts/render.sh profiles/cdi-france/cv.yaml
-./job publish          # copie le PDF rendu vers public/cv.pdf ici
+cp profiles/cdi-france/rendered/*.pdf ../ismailbahloul.com/public/cv.pdf
 ```
 
 ## Règle de contenu
