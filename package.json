@@ -1,0 +1,19 @@
+{
+  "name": "ismailbahloul.com",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Portfolio — Ismaïl Bahloul, ingénieur systèmes Linux & DevOps",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "deploy": "npm run build && wrangler pages deploy dist --project-name=ismailbahloul-com --branch=main"
+  },
+  "dependencies": {
+    "astro": "^7.4.2"
+  },
+  "devDependencies": {
+    "wrangler": "^4.152.0"
+  }
+}

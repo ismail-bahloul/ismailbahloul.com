@@ -1,0 +1,14 @@
+# dépendances
+node_modules/
+
+# build
+dist/
+.astro/
+
+# env
+.env
+.env.*
+
+# éditeurs / OS
+.DS_Store
+*.log

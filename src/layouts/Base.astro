@@ -1,0 +1,125 @@
+---
+import "../styles/global.css";
+
+interface Props {
+  title: string;
+  description: string;
+}
+
+const { title, description } = Astro.props;
+
+const SITE = "https://ismailbahloul.com";
+const canonical = new URL(Astro.url.pathname, SITE).toString();
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const fullTitle =
+  path === "/" ? title : `${title} · Ismaïl Bahloul`;
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Ismaïl Bahloul",
+  jobTitle: "Ingénieur systèmes Linux & DevOps",
+  url: SITE,
+  email: "mailto:ismail@ismailbahloul.com",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Nogent-sur-Oise",
+    addressRegion: "Hauts-de-France",
+    addressCountry: "FR",
+  },
+  alumniOf: {
+    "@type": "CollegeOrUniversity",
+    name: "ESEO — École Supérieure d'Électronique de l'Ouest",
+  },
+  sameAs: [
+    "https://github.com/ismail-bahloul",
+    "https://www.linkedin.com/in/ismail-bahloul",
+  ],
+  knowsAbout: [
+    "Linux",
+    "Active Directory",
+    "DevOps",
+    "Automatisation",
+    "Docker",
+    "CI/CD",
+    "C",
+    "Rust",
+    "Python",
+  ],
+};
+
+const nav = [
+  { href: "/projets", label: "Projets" },
+  { href: "/cv", label: "CV" },
+  { href: "/#contact", label: "Contact" },
+];
+
+const isCurrent = (href: string) => path === href;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{fullTitle}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="theme-color" content="#0a0b0d" />
+    <meta name="color-scheme" content="dark" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="sitemap" href="/sitemap.xml" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Ismaïl Bahloul" />
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={`${SITE}/og.png`} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Ismaïl Bahloul — ingénieur systèmes Linux & DevOps" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={`${SITE}/og.png`} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+
+  <body>
+    <a class="skip" href="#main">Aller au contenu</a>
+
+    <header class="site-header">
+      <div class="wrap">
+        <a class="brand" href="/">Ismaïl Bahloul<span> · systèmes &amp; DevOps</span></a>
+        <nav class="nav" aria-label="Navigation principale">
+          {nav.map((item) => (
+            <a
+              href={item.href}
+              aria-current={isCurrent(item.href) ? "page" : undefined}
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <slot />
+    </main>
+
+    <footer class="site-footer">
+      <div class="wrap">
+        <span>© 2026 Ismaïl Bahloul</span>
+        <span>
+          Site statique · Astro · Cloudflare Pages ·
+          <a href="https://github.com/ismail-bahloul/ismailbahloul.com">code source</a>
+        </span>
+      </div>
+    </footer>
+  </body>
+</html>
