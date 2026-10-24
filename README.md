@@ -23,11 +23,14 @@ npm run preview  # sert dist/ localement
 
 ```text
 ├── public/
-│   ├── cv.pdf        # CV publié (voir plus bas)
-│   ├── _headers      # en-têtes de sécurité
-│   ├── _redirects    # anciennes URLs (/projets, /cv) → 301
-│   ├── favicon.svg
-│   ├── og.png        # carte de partage
+│   ├── cv.pdf              # CV publié (voir plus bas)
+│   ├── _headers            # en-têtes de sécurité
+│   ├── _redirects          # anciennes URLs (/projets, /cv) → 301
+│   ├── logo.svg            # logo, version encre
+│   ├── logo-white.svg      # logo, version blanche (thème sombre)
+│   ├── favicon.png
+│   ├── apple-touch-icon.png
+│   ├── og.png              # carte de partage
 │   ├── robots.txt
 │   └── sitemap.xml
 └── src/

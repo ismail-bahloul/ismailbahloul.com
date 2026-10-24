@@ -6,7 +6,10 @@ import Base from "../layouts/Base.astro";
   title="Ismaïl Bahloul — Ingénieur systèmes Linux & DevOps"
   description="Ingénieur systèmes Linux & DevOps, diplômé de l'ESEO. Infrastructure, automatisation, code bas niveau. Disponible immédiatement en Île-de-France."
 >
-  <div class="logo" aria-hidden="true">IB</div>
+  <picture class="logo">
+    <source srcset="/logo-white.svg" media="(prefers-color-scheme: dark)" />
+    <img src="/logo.svg" alt="" width="40" height="40" />
+  </picture>
 
   <h1>Ismaïl Bahloul</h1>
   <p class="role">Ingénieur systèmes Linux &amp; DevOps</p>
@@ -37,5 +40,5 @@ import Base from "../layouts/Base.astro";
     <a href="https://www.linkedin.com/in/ismail-bahloul">LinkedIn</a>
   </nav>
 
-  <p class="meta">Nogent-sur-Oise · disponible immédiatement</p>
+  <p class="meta">disponible immédiatement · CDI, Île-de-France</p>
 </Base>

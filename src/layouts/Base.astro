@@ -20,12 +20,6 @@ const jsonLd = {
   jobTitle: "Ingénieur systèmes Linux & DevOps",
   url: SITE,
   email: "mailto:ismail@ismailbahloul.com",
-  address: {
-    "@type": "PostalAddress",
-    addressLocality: "Nogent-sur-Oise",
-    addressRegion: "Hauts-de-France",
-    addressCountry: "FR",
-  },
   alumniOf: {
     "@type": "CollegeOrUniversity",
     name: "ESEO — École Supérieure d'Électronique de l'Ouest",
@@ -58,7 +52,8 @@ const jsonLd = {
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
     <meta name="theme-color" content="#0b0b0b" media="(prefers-color-scheme: dark)" />
-    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon.png" sizes="64x64" type="image/png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <link rel="sitemap" href="/sitemap.xml" />
 
     <meta property="og:type" content="website" />
