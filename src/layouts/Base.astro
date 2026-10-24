@@ -4,14 +4,13 @@ import "../styles/global.css";
 interface Props {
   title: string;
   description: string;
+  ogTitle?: string;
 }
 
-const { title, description } = Astro.props;
+const { title, description, ogTitle = title } = Astro.props;
 
 const SITE = "https://ismailbahloul.com";
 const canonical = new URL(Astro.url.pathname, SITE).toString();
-const path = Astro.url.pathname.replace(/\/$/, "") || "/";
-const fullTitle = path === "/" ? title : `${title} · Ismaïl Bahloul`;
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -47,7 +46,7 @@ const jsonLd = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{fullTitle}</title>
+    <title>{title}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
     <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
@@ -59,7 +58,7 @@ const jsonLd = {
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content="Ismaïl Bahloul" />
     <meta property="og:locale" content="fr_FR" />
-    <meta property="og:title" content={fullTitle} />
+    <meta property="og:title" content={ogTitle} />
     <meta property="og:description" content={description} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={`${SITE}/og.png`} />
@@ -68,7 +67,7 @@ const jsonLd = {
     <meta property="og:image:alt" content="Ismaïl Bahloul — ingénieur systèmes Linux & DevOps" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:title" content={ogTitle} />
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={`${SITE}/og.png`} />
 
