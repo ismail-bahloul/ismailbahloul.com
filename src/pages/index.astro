@@ -5,12 +5,9 @@ import Base from "../layouts/Base.astro";
 <Base
   title="Ismaïl Bahloul"
   ogTitle="Ismaïl Bahloul — Ingénieur systèmes Linux & DevOps"
-  description="Ingénieur systèmes Linux & DevOps, diplômé de l'ESEO. Infrastructure, automatisation, code bas niveau. Disponible immédiatement en Île-de-France."
+  description="Ingénieur systèmes Linux & DevOps. Infrastructure, automatisation, code bas niveau."
 >
-  <picture class="logo">
-    <source srcset="/logo-white.svg" media="(prefers-color-scheme: dark)" />
-    <img src="/logo.svg" alt="" width="40" height="40" />
-  </picture>
+  <img class="logo" src="/logo-white.svg" alt="" width="40" height="40" />
 
   <h1>Ismaïl Bahloul</h1>
   <p class="role">Ingénieur systèmes Linux &amp; DevOps</p>
@@ -19,27 +16,17 @@ import Base from "../layouts/Base.astro";
 
   <div class="profile">
     <p>
-      Diplômé de l'ESEO en cloud, systèmes et sécurité. En alternance à
-      l'Assurance Maladie, j'ai travaillé sur l'infrastructure Active
-      Directory&nbsp;: plan de reprise d'activité, postes à privilèges, disaster
-      recovery.
-    </p>
-    <p>
-      Depuis 2024, consultant indépendant : automatisation, développement et
-      administration de systèmes Linux pour des clients. J'écris aussi du code
-      bas niveau — un driver ALSA pour une carte son RME, aujourd'hui en revue
-      upstream.
+      J'administre des infrastructures, j'automatise ce qui peut l'être, et
+      j'écris parfois du code qui touche au noyau.
     </p>
   </div>
 
   <hr />
 
   <nav class="links" aria-label="Liens">
+    <a class="primary" href="https://github.com/ismail-bahloul">Check my work ↗</a>
     <a href="/cv.pdf">CV (PDF)</a>
     <a href="mailto:ismail@ismailbahloul.com">Email</a>
-    <a href="https://github.com/ismail-bahloul">GitHub</a>
     <a href="https://www.linkedin.com/in/ismail-bahloul">LinkedIn</a>
   </nav>
-
-  <p class="meta">disponible immédiatement · CDI, Île-de-France</p>
 </Base>

@@ -4,26 +4,17 @@
    ========================================================================== */
 
 :root {
-  color-scheme: light dark;
+  color-scheme: dark;
 
-  --bg: #ffffff;
-  --fg: #111111;
-  --muted: #6b6b6b;
-  --hair: #e4e4e4;
+  --bg: #0b0b0b;
+  --fg: #ededed;
+  --muted: #8a8a8a;
+  --hair: #232323;
 
   --sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial, sans-serif;
   --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas,
     "Liberation Mono", monospace;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg: #0b0b0b;
-    --fg: #ededed;
-    --muted: #8a8a8a;
-    --hair: #232323;
-  }
 }
 
 *,
@@ -73,12 +64,6 @@ body {
   user-select: none;
 }
 
-.logo img {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-
 /* --- identité ------------------------------------------------------------ */
 
 h1 {
@@ -126,15 +111,21 @@ hr {
 }
 
 .links a {
-  color: var(--fg);
+  color: var(--muted);
   text-decoration: none;
   padding-bottom: 2px;
   border-bottom: 1px solid var(--hair);
-  transition: border-color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease;
 }
 
 .links a:hover {
+  color: var(--fg);
   border-color: var(--fg);
+}
+
+.links a.primary {
+  color: var(--fg);
+  border-bottom-color: var(--fg);
 }
 
 .meta {
@@ -143,6 +134,8 @@ hr {
   font-family: var(--mono);
   font-size: 12.5px;
 }
+
+/* retiré : plus de ligne de statut ni de localisation */
 
 /* --- divers -------------------------------------------------------------- */
 

@@ -39,8 +39,7 @@ npm run preview  # sert dist/ localement
     └── styles/global.css    # monochrome, clair/sombre automatique
 ```
 
-Le thème suit `prefers-color-scheme` : fond blanc et encre noire par défaut,
-inversé si le système est en sombre. Aucune couleur d'accent.
+Le thème est sombre, monochrome, sans couleur d'accent ni police distante.
 
 ## Déploiement
 
