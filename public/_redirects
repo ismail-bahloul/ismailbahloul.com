@@ -2,3 +2,8 @@
 /projets/*  /         301
 /cv         /cv.pdf   301
 /cv/        /cv.pdf   301
+
+# One-line dotfiles bootstrap. The script lives in the dotfiles repo and is
+# always the latest main; drop the pipe to read it first.
+/d          https://raw.githubusercontent.com/ismail-bahloul/dotfiles/main/bootstrap.sh  302
+/dotfiles   https://raw.githubusercontent.com/ismail-bahloul/dotfiles/main/bootstrap.sh  302
