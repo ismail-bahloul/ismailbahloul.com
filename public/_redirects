@@ -7,3 +7,8 @@
 # always the latest main; drop the pipe to read it first.
 /d          https://raw.githubusercontent.com/ismail-bahloul/dotfiles/main/bootstrap.sh  302
 /dotfiles   https://raw.githubusercontent.com/ismail-bahloul/dotfiles/main/bootstrap.sh  302
+
+# Machine layer (CachyOS/Arch): drivers, KDE, VFIO, audio, initramfs, udev.
+# It installs the userspace layer (/d) from its pinned tag as part of the run.
+/m          https://raw.githubusercontent.com/ismail-bahloul/dotfiles-machine/main/bootstrap-machine.sh  302
+/machine    https://raw.githubusercontent.com/ismail-bahloul/dotfiles-machine/main/bootstrap-machine.sh  302
